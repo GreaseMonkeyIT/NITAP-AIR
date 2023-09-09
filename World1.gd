@@ -1,14 +1,15 @@
 extends Spatial
 
 onready var plane = $RigidBody2
+onready var anim = $AnimationPlayer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _ready():	
+	anim.play("Start")
 
 
 func _process(delta):
@@ -20,4 +21,7 @@ func _process(delta):
 		plane.rotate_z(deg2rad(0.3))
 	if Input.is_action_pressed("Back"):
 		plane.rotate_z(deg2rad(-0.3))
+	
+	
+	anim.playback_speed = 2
 		
